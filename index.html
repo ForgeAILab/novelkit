@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NovelKit 0.1 · 你只管写，其余的帮你整理好</title>
+  <meta name="description" content="NovelKit 是本地优先的网文写作台。你写正文，摘要、设定卡、伏笔和情节点在旁边自己填好；停顿时自动补全，按 Tab 接受。">
+  <meta name="theme-color" content="#fbfaf7">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="NovelKit 0.1 · 你只管写，其余的帮你整理好">
+  <meta property="og:description" content="本地优先的网文写作台。你写正文，摘要、设定卡、伏笔和情节点在旁边自己填好。">
+  <link rel="icon" href="media/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="media/harmonyos-sans-sc-medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+
+  <header class="top">
+    <div class="wrap top-row">
+      <a class="brand" href="#" aria-label="NovelKit 首页">
+        <img src="media/icon.svg" width="28" height="28" alt="">
+        <span>NovelKit</span>
+      </a>
+      <nav class="top-nav" aria-label="页面">
+        <a href="#complete">自动补全</a>
+        <a href="#reference">参考面板</a>
+        <a href="#desk">一张桌子</a>
+        <a href="#download">下载</a>
+      </nav>
+      <span class="top-meta">0.1 · macOS / Windows / Linux</span>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap">
+      <p class="overline">NovelKit 0.1 · 本地优先的网文写作台</p>
+      <h1>你只管写。<br><span class="h1-second">其余的，帮你整理好。</span></h1>
+      <p class="lede">写给日更、几百章、一个人写的连载作者。你敲正文，摘要、设定卡、伏笔和情节点在旁边自己填好。</p>
+      <div class="hero-actions">
+        <a class="button" href="#download" data-download-primary>下载 NovelKit</a>
+        <button class="button button-quiet" type="button" data-play>
+          <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>
+          看 45 秒介绍
+        </button>
+        <a class="link" href="#complete">看它怎么帮你</a>
+      </div>
+
+      <figure class="film" data-reveal>
+        <video id="film" controls playsinline preload="metadata" poster="media/poster.webp" width="1920" height="1080">
+          <source src="media/novelkit-0.1.mp4" type="video/mp4">
+        </video>
+      </figure>
+    </section>
+
+    <section class="feature wrap" id="complete">
+      <div class="feature-copy" data-reveal>
+        <p class="index">01 · 自动补全</p>
+        <h2>自动补全，<br>码字更高效。</h2>
+        <p>停一下，下一句以灰字浮在句尾。按 Tab 接受，思路不断，接着写。</p>
+        <p class="note">补全读过你的设定卡和前文摘要，接的是这本书的下一句。</p>
+      </div>
+      <div class="sheet" data-reveal data-ghost-demo>
+        <p class="sheet-chapter">第一章 雾中来客</p>
+        <p class="sheet-title">渡轮靠岸</p>
+        <p class="sheet-prose">渡轮在傍晚六点十分靠岸，比时刻表晚了四十分钟。雾是从海上压过来的，一寸一寸吞掉了码头的灯，最后只剩下雾钟的声音，隔着很远，闷闷地敲了三下。<span class="caret" aria-hidden="true"></span><span class="ghost" data-ghost>雾里传来第二声钟响，比先前更近了一些。</span></p>
+        <div class="sheet-foot">
+          <button class="keycap" type="button" data-accept><kbd>Tab</kbd><span data-accept-label>接受</span></button>
+          <span class="sheet-status" data-ghost-status aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="reference">
+      <div class="wrap">
+        <div class="band-head" data-reveal>
+          <p class="index">02 · 参考面板</p>
+          <h2>你写正文，<br>旁边自己记好。</h2>
+          <p>正文旁的参考面板跟着你写的内容更新。自动追加，随时可撤销。</p>
+        </div>
+        <ol class="panels">
+          <li class="panel" data-reveal>
+            <img src="media/panel-summary.webp" width="720" height="706" loading="lazy" alt="参考面板「本章」：摘要已根据正文整理好，下方列出本章出场的设定。">
+            <h3>摘要</h3>
+            <p>写完一章，摘要已经在那儿了。</p>
+          </li>
+          <li class="panel" data-reveal>
+            <img src="media/panel-cards.webp" width="720" height="706" loading="lazy" alt="设定建议：已为沈砚添加别名沈家小子，已添加引航会设定卡，可撤销；本章设定变化记下了沈砚得到青铜罗盘。">
+            <h3>设定卡</h3>
+            <p>新角色、新设定，自动记进设定卡。</p>
+          </li>
+          <li class="panel" data-reveal>
+            <img src="media/panel-foreshadowing.webp" width="720" height="706" loading="lazy" alt="参考面板「伏笔」：两条未回收的伏笔，各自标着埋下的章节。">
+            <h3>伏笔</h3>
+            <p>埋下的伏笔，帮你记着。第 300 章也记得第 12 章。</p>
+          </li>
+          <li class="panel" data-reveal>
+            <img src="media/panel-beats.webp" width="720" height="706" loading="lazy" alt="参考面板「情节点」：本章脉络的三条建议，以及已有的两个情节点。">
+            <h3>情节点</h3>
+            <p>本章脉络，从正文里理出来。</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="desk wrap" id="desk">
+      <div class="desk-head" data-reveal>
+        <p class="index">03 · 一张桌子</p>
+        <h2>写作、大纲、设定库，<br>都在一张桌子上。</h2>
+      </div>
+      <div class="screens">
+        <figure class="screen" data-reveal>
+          <img src="media/writing-entity-hover.webp" width="1600" height="900" loading="lazy" alt="写作界面：鼠标停在正文里的名字上，弹出这张设定卡的摘要。">
+          <figcaption><strong>设定悬停即查</strong>名字上停一下，卡片就在手边。</figcaption>
+        </figure>
+        <figure class="screen" data-reveal>
+          <img src="media/plan.webp" width="1600" height="900" loading="lazy" alt="大纲界面：总纲文档与卷、章目录。">
+          <figcaption><strong>大纲</strong>总纲和目录，和正文用同一个编辑器。</figcaption>
+        </figure>
+        <figure class="screen" data-reveal>
+          <img src="media/wiki.webp" width="1600" height="900" loading="lazy" alt="设定库：沈砚的角色卡，含别名、标签、首次出场和描述。">
+          <figcaption><strong>设定库</strong>角色、地点、设定，一人一张卡。</figcaption>
+        </figure>
+        <figure class="screen" data-reveal>
+          <img src="media/history-revisions.webp" width="1600" height="900" loading="lazy" alt="修改记录：按时间列出的版本，右侧是与当前稿的差异。">
+          <figcaption><strong>修改记录</strong>自动保存，每一版都可恢复。</figcaption>
+        </figure>
+      </div>
+      <dl class="facts" data-reveal>
+        <div><dt>本地优先</dt><dd>稿子是你文件夹里的 Markdown，随时拿得走。</dd></div>
+        <div><dt>自动保存</dt><dd>边写边存，修改记录可恢复。</dd></div>
+        <div><dt>本地模型</dt><dd>补全和整理可以全在你自己的电脑上跑。</dd></div>
+      </dl>
+    </section>
+
+    <section class="outro" id="download">
+      <div class="wrap" data-reveal>
+        <p class="outro-line">你只管写。</p>
+        <p class="outro-sub">其余的，帮你整理好。</p>
+        <button class="button" type="button" data-play>
+          <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>
+          再看一遍介绍
+        </button>
+        <div class="downloads">
+          <p class="downloads-title">下载 <span data-release-name>测试版</span></p>
+          <ul class="downloads-list">
+            <li><a class="download" data-asset="mac-arm" href="https://github.com/ForgeAILab/novelkit/releases">macOS · Apple 芯片</a></li>
+            <li><a class="download" data-asset="mac-intel" href="https://github.com/ForgeAILab/novelkit/releases">macOS · Intel</a></li>
+            <li><a class="download" data-asset="windows" href="https://github.com/ForgeAILab/novelkit/releases">Windows</a></li>
+            <li><a class="download" data-asset="linux" href="https://github.com/ForgeAILab/novelkit/releases">Linux · AppImage</a></li>
+          </ul>
+          <p class="downloads-note">测试版未签名：macOS 右键「打开」，Windows 在 SmartScreen 点「更多信息 → 仍要运行」。<a href="https://github.com/ForgeAILab/novelkit/releases">所有版本</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-row">
+      <span class="brand"><img src="media/icon.svg" width="20" height="20" alt=""><span>NovelKit 0.1</span></span>
+      <span>本地优先的网文写作台 · macOS / Windows / Linux · <a href="https://github.com/ForgeAILab/novelkit/releases">版本</a></span>
+    </div>
+  </footer>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
