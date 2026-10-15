@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>模型设置 · NovelKit 文档</title>
+  <meta name="description" content="内置引擎、Ollama 和云端服务，以及不配模型时能用什么。">
+  <meta name="theme-color" content="#fbfaf7">
+  <link rel="icon" href="../media/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="docs.css">
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="top">
+    <div class="wrap top-row">
+      <a class="brand" href="../" aria-label="NovelKit 首页">
+        <img src="../media/icon.svg" width="28" height="28" alt="">
+        <span>NovelKit</span>
+      </a>
+      <nav class="top-nav" aria-label="页面">
+        <a href="../">首页</a>
+        <a href="./">文档</a>
+        <a href="../#download">下载</a>
+      </nav>
+      <span class="top-meta">0.1 测试版</span>
+    </div>
+  </header>
+
+  <div class="wrap docs">
+    <nav class="docs-nav" aria-label="文档">
+      <p>文档</p>
+      <ul>
+          <li><a href="index.html">快速开始</a></li>
+          <li><a href="writing.html">写作与补全</a></li>
+          <li><a href="reference.html">参考面板与自动整理</a></li>
+          <li><a href="codex.html">设定库与大纲</a></li>
+          <li><a href="models.html" aria-current="page">模型设置</a></li>
+          <li><a href="data.html">文件、历史与导出</a></li>
+      </ul>
+    </nav>
+    <main id="main" class="article">
+      <h1>模型设置</h1>
+      <p class="lede">内置引擎、Ollama 和云端服务，以及不配模型时能用什么。</p>
+
+      <h2>不配模型能做什么</h2>
+      <p>写作和自动保存、大纲、设定库、名字识别与悬停卡片、起名和掷骰、敏感词、全项目搜索与替换、历史与回收站、备份、发布导出、写作进度、地图和片段，都不需要模型。</p>
+      <p>需要模型的是：灰字补全（补全模型），以及摘要、设定建议、设定变化、对白与说话人、口癖和说话风格、本章脉络、改写、情节点草稿和风格识别（对话模型）。</p>
+
+      <h2>内置引擎（推荐）</h2>
+      <p>NovelKit 自带 llama-server，只在本机回环地址运行，不需要另装 Ollama。打开「应用设置 → 模型」，在「内置引擎」下载模型：</p>
+      <table>
+        <tr><th>档位</th><th>模型</th><th>大小</th><th>用途</th></tr>
+        <tr><td rowspan="3">基础</td><td>Qwen2.5-Coder 1.5B</td><td>1.1 GB</td><td>灰字补全</td></tr>
+        <tr><td>Qwen3.5 4B</td><td>2.7 GB</td><td>摘要、整理、改写</td></tr>
+        <tr><td>决策小模型 0.8B</td><td>0.8 GB</td><td>判断什么时候给建议</td></tr>
+        <tr><td>全部（额外）</td><td>Qwen3.5 9B</td><td>5.7 GB</td><td>更好的对话模型，适合 24 GB 以上内存</td></tr>
+      </table>
+      <ul>
+        <li>每个文件可以单独下载、取消、重试和「立即校验」。</li>
+        <li>模型目录可以改到外置硬盘，修改后重启生效。</li>
+        <li>引擎在第一次请求时加载，闲置 10 分钟后自动释放内存；也可以手动「释放模型内存」。</li>
+        <li>内存 24 GB 以上的电脑，新安装默认用 9B 对话模型，否则用 4B。</li>
+      </ul>
+
+      <h2>使用其他服务</h2>
+      <p>在「模型 → 模型配置」里「添加配置」，填名称、服务类型、Base URL 和模型 ID，然后「测试连接」或「发现模型」。API Key 只保存在系统钥匙串里，不写进项目。</p>
+      <table>
+        <tr><th>服务类型</th><th>行内补全</th><th>摘要 / 情节点 / 改写</th></tr>
+        <tr><td>内置引擎（llama-server）</td><td>✓</td><td>✓</td></tr>
+        <tr><td>Ollama</td><td>✓</td><td>✓</td></tr>
+        <tr><td>LM Studio</td><td>✓</td><td>✓</td></tr>
+        <tr><td>OpenAI 兼容服务</td><td>✓</td><td>✓</td></tr>
+        <tr><td>Anthropic、Gemini</td><td>—</td><td>✓</td></tr>
+        <tr><td>Claude Code、Codex（本机命令行）</td><td>—</td><td>✓</td></tr>
+      </table>
+      <p>然后在「生成模型」里分别选：</p>
+      <ul>
+        <li><strong>补全模型</strong>：灰字补全，建议用小而快的本地模型。</li>
+        <li><strong>摘要模型</strong>：摘要和情节点共用。</li>
+        <li><strong>改写模型</strong>：默认跟随摘要模型。</li>
+      </ul>
+      <div class="note"><p>选了云端配置时，界面会提示你的正文会发送给哪个服务商。想完全不出本机，补全和摘要都选内置引擎或本机的 Ollama / LM Studio。</p></div>
+
+      <h2>常用开关</h2>
+      <table>
+        <tr><th>设置</th><th>默认</th></tr>
+        <tr><td>行内补全</td><td>开，延迟 300 ms</td></tr>
+        <tr><td>自动生成摘要</td><td>开</td></tr>
+        <tr><td>自动记录设定变化</td><td>开</td></tr>
+        <tr><td>自动添加设定卡</td><td>关（新卡片由你确认）</td></tr>
+        <tr><td>后台整理全书</td><td>开</td></tr>
+      </table>
+      <p>模型的上下文窗口会自动查询，也可以手动填写。</p>
+
+      <nav class="pager" aria-label="翻页"><a href="codex.html">← 设定库与大纲</a><a href="data.html">文件、历史与导出 →</a></nav>
+    </main>
+  </div>
+
+  <footer class="foot">
+    <div class="wrap foot-row">
+      <span class="brand"><img src="../media/icon.svg" width="20" height="20" alt=""><span>NovelKit 0.1</span></span>
+      <span>本地优先的网文写作台 · <a href="https://github.com/ForgeAILab/novelkit/releases">版本</a></span>
+    </div>
+  </footer>
+</body>
+</html>

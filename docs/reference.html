@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>参考面板与自动整理 · NovelKit 文档</title>
+  <meta name="description" content="摘要、设定建议、情节点、伏笔，以及后台整理全书。">
+  <meta name="theme-color" content="#fbfaf7">
+  <link rel="icon" href="../media/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="docs.css">
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="top">
+    <div class="wrap top-row">
+      <a class="brand" href="../" aria-label="NovelKit 首页">
+        <img src="../media/icon.svg" width="28" height="28" alt="">
+        <span>NovelKit</span>
+      </a>
+      <nav class="top-nav" aria-label="页面">
+        <a href="../">首页</a>
+        <a href="./">文档</a>
+        <a href="../#download">下载</a>
+      </nav>
+      <span class="top-meta">0.1 测试版</span>
+    </div>
+  </header>
+
+  <div class="wrap docs">
+    <nav class="docs-nav" aria-label="文档">
+      <p>文档</p>
+      <ul>
+          <li><a href="index.html">快速开始</a></li>
+          <li><a href="writing.html">写作与补全</a></li>
+          <li><a href="reference.html" aria-current="page">参考面板与自动整理</a></li>
+          <li><a href="codex.html">设定库与大纲</a></li>
+          <li><a href="models.html">模型设置</a></li>
+          <li><a href="data.html">文件、历史与导出</a></li>
+      </ul>
+    </nav>
+    <main id="main" class="article">
+      <h1>参考面板与自动整理</h1>
+      <p class="lede">摘要、设定建议、情节点、伏笔，以及后台整理全书。</p>
+
+      <img src="../media/panel-summary.webp" width="720" height="706" loading="lazy" alt="参考面板「本章」：摘要已根据正文整理好。">
+
+      <h2>参考面板</h2>
+      <p>点顶栏的「参考面板」打开，可以「移到左侧 / 移到右侧」。共五个标签：</p>
+      <table>
+        <tr><th>标签</th><th>内容</th></tr>
+        <tr><td>本章</td><td>一句话备注、设定建议、摘要与要点、当前阶段、出场设定、本章设定变化、已记下对白、逐段标记</td></tr>
+        <tr><td>设定</td><td>正文里提到的设定卡</td></tr>
+        <tr><td>片段</td><td>你收集的素材片段，可以在补全时手动附带</td></tr>
+        <tr><td>情节点</td><td>本章脉络、提议情节点和本小节已有的情节点</td></tr>
+        <tr><td>伏笔</td><td>全书伏笔，按未回收 / 已回收 / 弃用筛选</td></tr>
+      </table>
+
+      <h2>它会自己填什么</h2>
+      <p>下面这些都在后台完成，不打断你写字。原则是：<strong>只往空处填、往末尾追加，不改你写的字；每次自动修改都能撤销。</strong></p>
+      <table>
+        <tr><th>内容</th><th>何时更新</th><th>你能做什么</th></tr>
+        <tr><td>摘要</td><td>离开这一节，或保存后两分钟没再编辑</td><td>自己写的摘要不会被覆盖</td></tr>
+        <tr><td>本章脉络</td><td>随摘要一起整理，显示在「情节点」标签顶部；还没写的章，会按大纲和前几章提议情节点</td><td>「加为情节点」或「不要这条」</td></tr>
+        <tr><td>设定建议</td><td>有本章摘要之后</td><td>别名和首次出场自动补上，新卡片由你点添加；可撤销</td></tr>
+        <tr><td>本章设定变化</td><td>随摘要</td><td>新事实追加到卡片末尾，可逐条移除</td></tr>
+        <tr><td>对白与说话人</td><td>整理全书时</td><td>点说话人标签修改</td></tr>
+        <tr><td>口癖、说话风格</td><td>角色在足够多的小节里开口后</td><td>改过之后就归你，不再被替换</td></tr>
+        <tr><td>逐段标记</td><td>随摘要</td><td>只作参考；伏笔由你决定是否加入列表</td></tr>
+      </table>
+      <p><strong>要点</strong>只由你自己写，AI 补全和起草情节点时会读。</p>
+
+      <img src="../media/panel-cards.webp" width="720" height="706" loading="lazy" alt="设定建议：已为沈砚添加别名，可撤销。">
+
+      <h2>整理全书</h2>
+      <p>打开一本书约 10 秒后，NovelKit 会在后台依次给每章写摘要、整理对白与设定、整理逐段标记。左侧栏的模式按钮下会显示进度。</p>
+      <ul>
+        <li>你在打字时它会让路：「等你停笔半分钟后继续」。</li>
+        <li>可以「暂停 / 继续整理全书」或「跳过这一章」；连续两次失败会自动暂停，点继续再试。</li>
+        <li>「应用设置 → 模型 → 生成模型」里可以关掉「后台整理全书」或「自动生成摘要」。</li>
+      </ul>
+
+      <h2>伏笔</h2>
+      <img src="../media/panel-foreshadowing.webp" width="720" height="706" loading="lazy" alt="参考面板「伏笔」：两条未回收的伏笔。">
+      <p>在「伏笔」标签「添加本章伏笔」，或在正文选中一句「标为伏笔」。每条显示埋下的章节、「N 章前」和原文引文；回收时点「在本章回收」。</p>
+
+      <nav class="pager" aria-label="翻页"><a href="writing.html">← 写作与补全</a><a href="codex.html">设定库与大纲 →</a></nav>
+    </main>
+  </div>
+
+  <footer class="foot">
+    <div class="wrap foot-row">
+      <span class="brand"><img src="../media/icon.svg" width="20" height="20" alt=""><span>NovelKit 0.1</span></span>
+      <span>本地优先的网文写作台 · <a href="https://github.com/ForgeAILab/novelkit/releases">版本</a></span>
+    </div>
+  </footer>
+</body>
+</html>

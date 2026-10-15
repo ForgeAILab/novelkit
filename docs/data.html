@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>文件、历史与导出 · NovelKit 文档</title>
+  <meta name="description" content="稿件存在哪、自动保存、版本与回收站、备份和发布导出。">
+  <meta name="theme-color" content="#fbfaf7">
+  <link rel="icon" href="../media/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="docs.css">
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="top">
+    <div class="wrap top-row">
+      <a class="brand" href="../" aria-label="NovelKit 首页">
+        <img src="../media/icon.svg" width="28" height="28" alt="">
+        <span>NovelKit</span>
+      </a>
+      <nav class="top-nav" aria-label="页面">
+        <a href="../">首页</a>
+        <a href="./">文档</a>
+        <a href="../#download">下载</a>
+      </nav>
+      <span class="top-meta">0.1 测试版</span>
+    </div>
+  </header>
+
+  <div class="wrap docs">
+    <nav class="docs-nav" aria-label="文档">
+      <p>文档</p>
+      <ul>
+          <li><a href="index.html">快速开始</a></li>
+          <li><a href="writing.html">写作与补全</a></li>
+          <li><a href="reference.html">参考面板与自动整理</a></li>
+          <li><a href="codex.html">设定库与大纲</a></li>
+          <li><a href="models.html">模型设置</a></li>
+          <li><a href="data.html" aria-current="page">文件、历史与导出</a></li>
+      </ul>
+    </nav>
+    <main id="main" class="article">
+      <h1>文件、历史与导出</h1>
+      <p class="lede">稿件存在哪、自动保存、版本与回收站、备份和发布导出。</p>
+
+      <h2>稿件存在哪</h2>
+      <p>每本书是一个普通文件夹，默认在 <code>文稿/NovelKit/&lt;作品名&gt;</code>：</p>
+      <pre><code>我的小说/
+├── scenes/        每个小节一份 Markdown 正文
+├── chapters/      章节信息
+├── wiki/          设定卡，每张一个 Markdown
+├── outlines/      大纲页面
+├── snippets/      片段
+├── prompts/       本项目的提示词
+├── assets/        封面、参考图、地图
+└── .novelkit/     项目树、修改记录、版本快照、回收站和可重建的索引</code></pre>
+      <p>你可以用任何编辑器打开这些文件，也可以把整个文件夹放进网盘或 Git。API Key 存在系统钥匙串，作者风格预设存在本机应用数据里，都不会随项目文件夹走。</p>
+
+      <h2>自动保存</h2>
+      <p>停止输入不到一秒就会保存。保存失败时顶栏会显示并可以重试；关窗时如果还有没保存的内容，会提示你。</p>
+
+      <h2>历史与回收站</h2>
+      <img src="../media/history-revisions.webp" width="1600" height="900" loading="lazy" alt="修改记录：按时间列出的版本和差异。">
+      <p>「更多 → 历史与回收站」有三个视图：</p>
+      <ul>
+        <li><strong>版本</strong>：整本书的快照。「存一个版本」手动存，起了名字的和手动存的永久保留；全书替换、AI 改写、恢复备份或版本、永久删除之前也会自动存一个。恢复版本后还能「撤销恢复」。</li>
+        <li><strong>修改记录</strong>：正文、设定卡、片段、提示词每次保存都会留一条，可以「对比」「复制改动」「恢复到这条记录」。恢复前会先把当前内容再存一条。</li>
+        <li><strong>回收站</strong>：删除的章节、设定卡、片段、提示词、大纲页和参考图都先进这里，可以恢复或永久删除。在欢迎页「删除这本书」则是把整个文件夹移到系统废纸篓。</li>
+      </ul>
+
+      <h2>备份与恢复</h2>
+      <p>「更多 → 备份与恢复」：</p>
+      <ul>
+        <li><strong>导出备份</strong>：把整个项目打成一个备份包（不含密钥和缓存），需要存在项目文件夹之外。</li>
+        <li><strong>恢复项目</strong>：「恢复为副本」，或「覆盖当前项目」（覆盖前会先存一份可回退的副本）。</li>
+      </ul>
+
+      <h2>发布导出</h2>
+      <ul>
+        <li><strong>范围</strong>：全书、卷、章或小节；<strong>格式</strong>：Markdown、DOCX 或 TXT；合并为一个文件或每章一个文件。</li>
+        <li><strong>包含内容</strong>：标题、小节标题、摘要、小节分隔线可选。情节点草稿、研究笔记和密钥永远不会导出。</li>
+        <li><strong>发布预设</strong>：通用、两个全角空格缩进、仅正文。各平台的具体格式要求请以平台为准。</li>
+        <li>日更时用章节右键「复制本章」直接粘贴到平台后台，再「标为已发布」。章节状态有草稿、已完成、已发布、定时发布。</li>
+        <li>在「项目设置 → 连载」填每天更新几章，状态栏会显示「存稿 N 章 · 可更 N 天」。</li>
+      </ul>
+
+      <nav class="pager" aria-label="翻页"><a href="models.html">← 模型设置</a><span></span></nav>
+    </main>
+  </div>
+
+  <footer class="foot">
+    <div class="wrap foot-row">
+      <span class="brand"><img src="../media/icon.svg" width="20" height="20" alt=""><span>NovelKit 0.1</span></span>
+      <span>本地优先的网文写作台 · <a href="https://github.com/ForgeAILab/novelkit/releases">版本</a></span>
+    </div>
+  </footer>
+</body>
+</html>

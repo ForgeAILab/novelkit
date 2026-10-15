@@ -1,0 +1,53 @@
+/* NovelKit docs: the launch page's tokens and top bar (../styles.css), plus a reading layout. */
+
+.docs { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); padding-block: clamp(40px, 6vw, 80px) var(--space-section); }
+
+.docs-nav { position: sticky; top: 84px; align-self: start; font-size: 15px; }
+.docs-nav p { font: 13px/1.4 var(--font-mono); letter-spacing: .04em; color: var(--text-tertiary); margin-bottom: var(--space-3); }
+.docs-nav ul { margin: 0 0 var(--space-8); padding: 0; list-style: none; }
+.docs-nav a { display: block; padding: 6px 12px; margin-left: -12px; border-radius: var(--radius-md); color: var(--text-secondary); transition: background var(--dur) var(--ease), color var(--dur) var(--ease); }
+.docs-nav a:hover { background: var(--fill-hover); color: var(--text); }
+.docs-nav a[aria-current="page"] { background: var(--accent-100); color: var(--accent-ink); font-weight: 500; }
+
+.article { max-width: 46em; }
+.article > * + * { margin-top: var(--space-4); }
+.article h1 { font-size: clamp(32px, 4vw, 44px); line-height: 1.2; letter-spacing: -.01em; }
+.article .lede { margin-top: var(--space-4); font-size: var(--text-lede); }
+.article h2 { margin-top: var(--space-12); padding-top: var(--space-6); border-top: 1px solid var(--line-subtle); font-size: 26px; line-height: 1.35; }
+.article h3 { margin-top: var(--space-8); font-size: var(--text-h3); }
+.article p, .article li { color: var(--text-secondary); }
+.article strong { color: var(--text); font-weight: 600; }
+.article a { color: var(--accent-ink); border-bottom: 1px solid var(--accent-300); }
+.article a:hover { border-color: var(--accent); }
+.article ul, .article ol { padding-left: 1.4em; }
+.article ol { list-style: decimal; }
+.article li + li { margin-top: var(--space-2); }
+.article code, .article kbd { font: 14px/1.4 var(--font-mono); padding: 2px 6px; border-radius: var(--radius-sm); background: var(--surface-desk); color: var(--text); }
+.article kbd { border: 1px solid var(--line); border-bottom-width: 2px; background: var(--surface-raised); }
+.article pre { padding: var(--space-4); border-radius: var(--radius-lg); background: var(--surface-desk); overflow-x: auto; font: 14px/1.6 var(--font-mono); }
+.article pre code { padding: 0; background: none; }
+.article img { border: 1px solid var(--line); border-radius: var(--radius-lg); box-shadow: var(--shadow-pop); margin-block: var(--space-6); }
+.article table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.article th, .article td { padding: 10px 12px; border-bottom: 1px solid var(--line-subtle); text-align: left; vertical-align: top; }
+.article th { color: var(--text); font-weight: 600; background: var(--surface-side); }
+.article td { color: var(--text-secondary); }
+.note { padding: var(--space-4) var(--space-6); border-left: 3px solid var(--accent-300); border-radius: 0 var(--radius-md) var(--radius-md) 0; background: var(--surface-side); }
+.note p { color: var(--text-secondary); }
+
+.steps { counter-reset: step; list-style: none !important; padding-left: 0 !important; }
+.steps > li { counter-increment: step; position: relative; padding-left: 44px; }
+.steps > li + li { margin-top: var(--space-6); }
+.steps > li::before { content: counter(step); position: absolute; left: 0; top: 2px; width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: var(--text-on-accent); font: 500 14px/28px var(--font-display); text-align: center; }
+
+.pager { display: flex; justify-content: space-between; gap: var(--space-4); margin-top: var(--space-12) !important; padding-top: var(--space-6); border-top: 1px solid var(--line-subtle); }
+.pager a { border: 0; }
+
+@media (max-width: 860px) {
+  .docs { grid-template-columns: minmax(0, 1fr); }
+  .docs-nav { position: static; display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .docs-nav p { display: none; }
+  .docs-nav ul { display: contents; }
+  .docs-nav a { margin-left: 0; border: 1px solid var(--line); }
+}
+.article th { white-space: nowrap; }
+@media (max-width: 640px) { .article table { display: block; overflow-x: auto; } }

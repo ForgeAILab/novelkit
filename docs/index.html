@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>快速开始 · NovelKit 文档</title>
+  <meta name="description" content="下载、安装、建一本书、写下第一章，再让补全帮你接着写。">
+  <meta name="theme-color" content="#fbfaf7">
+  <link rel="icon" href="../media/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="docs.css">
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="top">
+    <div class="wrap top-row">
+      <a class="brand" href="../" aria-label="NovelKit 首页">
+        <img src="../media/icon.svg" width="28" height="28" alt="">
+        <span>NovelKit</span>
+      </a>
+      <nav class="top-nav" aria-label="页面">
+        <a href="../">首页</a>
+        <a href="./">文档</a>
+        <a href="../#download">下载</a>
+      </nav>
+      <span class="top-meta">0.1 测试版</span>
+    </div>
+  </header>
+
+  <div class="wrap docs">
+    <nav class="docs-nav" aria-label="文档">
+      <p>文档</p>
+      <ul>
+          <li><a href="index.html" aria-current="page">快速开始</a></li>
+          <li><a href="writing.html">写作与补全</a></li>
+          <li><a href="reference.html">参考面板与自动整理</a></li>
+          <li><a href="codex.html">设定库与大纲</a></li>
+          <li><a href="models.html">模型设置</a></li>
+          <li><a href="data.html">文件、历史与导出</a></li>
+      </ul>
+    </nav>
+    <main id="main" class="article">
+      <h1>快速开始</h1>
+      <p class="lede">下载、安装、建一本书、写下第一章，再让补全帮你接着写。</p>
+
+      <h2>NovelKit 是什么</h2>
+      <p>NovelKit 是写给日更、几百章、一个人写的连载作者的桌面写作台。你只管写正文：停顿时它在光标后给出一行灰字，按 <kbd>Tab</kbd> 接受；摘要、设定卡、伏笔和情节点在旁边的参考面板里自己整理好。</p>
+      <ul>
+        <li><strong>稿件就是文件。</strong>每本书是你电脑上的一个普通文件夹，正文和设定卡都是 Markdown，随时拿得走。</li>
+        <li><strong>停笔即保存。</strong>不用按保存，每一版都能找回。</li>
+        <li><strong>AI 只帮忙，不代写。</strong>补全要你按 Tab 才进正文；自动整理只往空处填、往末尾追加，不会改你写的字，每次修改都能撤销。</li>
+        <li><strong>可以完全离线。</strong>自带本地模型引擎，补全和整理都能在你自己的电脑上跑。</li>
+      </ul>
+
+      <h2>1. 下载与安装</h2>
+      <p>在 <a href="https://github.com/ForgeAILab/novelkit/releases">版本页</a> 下载对应系统的安装包：</p>
+      <table>
+        <tr><th>系统</th><th>文件</th></tr>
+        <tr><td>macOS · Apple 芯片（M1 及以后）</td><td><code>NovelKit_…_aarch64.dmg</code></td></tr>
+        <tr><td>macOS · Intel</td><td><code>NovelKit_…_x64.dmg</code></td></tr>
+        <tr><td>Windows 10 / 11</td><td><code>NovelKit_…_x64-setup.exe</code>（或 <code>.msi</code>）</td></tr>
+        <tr><td>Linux</td><td><code>.AppImage</code>、<code>.deb</code> 或 <code>.rpm</code></td></tr>
+      </table>
+      <div class="note">
+        <p><strong>测试版没有签名。</strong>macOS 第一次打开时，在「应用程序」里右键 NovelKit →「打开」；如果仍提示已损坏，在终端运行 <code>xattr -dr com.apple.quarantine /Applications/NovelKit.app</code>。Windows 出现 SmartScreen 时点「更多信息 → 仍要运行」。</p>
+      </div>
+
+      <h2>2. 新建一本书</h2>
+      <ol class="steps">
+        <li>打开 NovelKit，在欢迎页右侧点 <strong>「新建作品」</strong>。</li>
+        <li>填 <strong>「作品名」</strong>（必填），作者、系列和语言可以以后再改。</li>
+        <li><strong>「位置」</strong>默认是 <code>文稿/NovelKit</code>（Windows 为 <code>Documents\NovelKit</code>），也可以点「选择位置…」换一个文件夹。「文件夹名称」会按作品名自动生成。</li>
+        <li>创建完成后选 <strong>「开始规划」</strong>先写大纲，或 <strong>「开始写作」</strong>直接写正文。</li>
+      </ol>
+      <p>已经有稿子？在欢迎页「更多」菜单里选 <strong>「导入 DOCX / Markdown / TXT…」</strong>，把「标题 1/2/3」或分隔线 <code>***</code> 对应到卷、章、小节，预览无误再导入。导入不会改动原文件。</p>
+
+      <h2>3. 下载本地模型（可选，推荐）</h2>
+      <p>不配模型也能写作、整理大纲和设定库；灰字补全和自动整理需要模型。最省事的是用自带的内置引擎：</p>
+      <ol class="steps">
+        <li>打开 <strong>「更多 → 应用设置 → 模型」</strong>，找到「内置引擎（llama-server）」。</li>
+        <li>点 <strong>「下载基础模型」</strong>：一个补全模型、一个对话模型、一个决策模型，共约 4.6 GB。内存 24 GB 以上的电脑还可以「下载全部」，多一个约 5.7 GB 的大对话模型。</li>
+        <li>下载完成即可使用，补全、摘要默认就指向内置引擎。引擎只在本机运行，第一次请求时加载，闲置 10 分钟后自动释放内存。</li>
+      </ol>
+      <p>想用 Ollama、LM Studio 或云端服务，见 <a href="models.html">模型设置</a>。</p>
+
+      <h2>4. 写下第一章</h2>
+      <ol class="steps">
+        <li>左侧栏切到 <strong>「写作」</strong>，在章节树里右键 →「新建章节」。</li>
+        <li>在正文里直接打字。输入 <kbd>/</kbd> 可以选标题、列表、引用等样式。</li>
+        <li>写到段落末尾停一下，光标后会出现灰字：<kbd>Tab</kbd> 接受，<kbd>Esc</kbd> 放弃，继续打字也等于放弃。</li>
+        <li>点顶栏的「参考面板」，在 <strong>「本章」</strong>里能看到摘要、出场设定和设定建议。离开这一节或停笔两分钟后，摘要会在后台自己写好。</li>
+      </ol>
+
+      <h2>5. 接下来</h2>
+      <ul>
+        <li>在 <strong>「设定库」</strong>建几张角色卡。正文里提到名字时会自动识别，鼠标停上去就能看卡片。见 <a href="codex.html">设定库与大纲</a>。</li>
+        <li>按 <kbd>⌘/Ctrl</kbd>+<kbd>J</kbd> 写一个情节点，让 AI 起一段草稿给你挑。见 <a href="writing.html">写作与补全</a>。</li>
+        <li>了解稿件存在哪、怎么找回旧版本，见 <a href="data.html">文件、历史与导出</a>。</li>
+      </ul>
+
+      <nav class="pager" aria-label="翻页"><span></span><a href="writing.html">写作与补全 →</a></nav>
+    </main>
+  </div>
+
+  <footer class="foot">
+    <div class="wrap foot-row">
+      <span class="brand"><img src="../media/icon.svg" width="20" height="20" alt=""><span>NovelKit 0.1</span></span>
+      <span>本地优先的网文写作台 · <a href="https://github.com/ForgeAILab/novelkit/releases">版本</a></span>
+    </div>
+  </footer>
+</body>
+</html>

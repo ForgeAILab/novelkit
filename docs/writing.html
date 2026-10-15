@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>写作与补全 · NovelKit 文档</title>
+  <meta name="description" content="编辑器、灰字补全、情节点草稿和选区改写。">
+  <meta name="theme-color" content="#fbfaf7">
+  <link rel="icon" href="../media/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="docs.css">
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="top">
+    <div class="wrap top-row">
+      <a class="brand" href="../" aria-label="NovelKit 首页">
+        <img src="../media/icon.svg" width="28" height="28" alt="">
+        <span>NovelKit</span>
+      </a>
+      <nav class="top-nav" aria-label="页面">
+        <a href="../">首页</a>
+        <a href="./">文档</a>
+        <a href="../#download">下载</a>
+      </nav>
+      <span class="top-meta">0.1 测试版</span>
+    </div>
+  </header>
+
+  <div class="wrap docs">
+    <nav class="docs-nav" aria-label="文档">
+      <p>文档</p>
+      <ul>
+          <li><a href="index.html">快速开始</a></li>
+          <li><a href="writing.html" aria-current="page">写作与补全</a></li>
+          <li><a href="reference.html">参考面板与自动整理</a></li>
+          <li><a href="codex.html">设定库与大纲</a></li>
+          <li><a href="models.html">模型设置</a></li>
+          <li><a href="data.html">文件、历史与导出</a></li>
+      </ul>
+    </nav>
+    <main id="main" class="article">
+      <h1>写作与补全</h1>
+      <p class="lede">编辑器、灰字补全、情节点草稿和选区改写。</p>
+
+      <img src="../media/writing-entity-hover.webp" width="1600" height="900" loading="lazy" alt="写作界面：鼠标停在正文里的名字上，弹出设定卡摘要。">
+
+      <h2>工作区</h2>
+      <ul>
+        <li><strong>左侧栏</strong>：顶部是返回作品列表和书名（点书名打开「全书概览」），下面是三个模式 <strong>「写作 / 大纲 / 设定库」</strong>和章节树（卷 › 章 › 小节）。</li>
+        <li><strong>中间</strong>：正文编辑器，含章节标题、可选的小节标题和摘要行。</li>
+        <li><strong>顶栏</strong>：当前位置、保存状态、「全项目搜索」「参考面板」和「更多」菜单（项目设置、存一个版本、历史与回收站、备份与恢复、发布导出、写作进度、片段）。</li>
+      </ul>
+      <p>章节树右键可以新建卷、章、小节，重命名、移动、拆分与合并、归档或移入回收站。</p>
+
+      <h2>编辑器</h2>
+      <p>正文是 Markdown，但所见即所得：标题、加粗、列表直接按样式显示。</p>
+      <ul>
+        <li>输入 <kbd>/</kbd> 打开样式菜单：正文、标题 1/2/3、列表、编号列表、引用、分割线、情节点。支持拼音首字母，如 <code>bt1</code>。</li>
+        <li>选中文字会出现选区工具栏：加粗、斜体、删除线、引用、链接；「更多」里有扩写、改写、缩写、自定义改写、存为样文、存为角色语气、创建设定卡、标为伏笔。键盘用户可按 <kbd>Alt</kbd>+<kbd>F10</kbd> 进入。</li>
+        <li>对白前会显示说话人标签，点一下可以改，或标为「没有人说（不是对白）」。可在「外观」里关掉。</li>
+        <li>项目设置里的敏感词会在正文下画波浪线，状态栏显示数量。</li>
+      </ul>
+
+      <h3>快捷键</h3>
+      <table>
+        <tr><th>按键</th><th>作用</th></tr>
+        <tr><td><kbd>Tab</kbd> / <kbd>Esc</kbd></td><td>接受 / 放弃灰字补全</td></tr>
+        <tr><td><kbd>⌘/Ctrl</kbd>+<kbd>J</kbd></td><td>在光标处写情节点</td></tr>
+        <tr><td><kbd>⌘/Ctrl</kbd>+<kbd>F</kbd></td><td>本小节内查找</td></tr>
+        <tr><td><kbd>⌘/Ctrl</kbd>+<kbd>S</kbd></td><td>立即保存（平时会自动保存）</td></tr>
+        <tr><td><kbd>⌘/Ctrl</kbd>+<kbd>B</kbd> / <kbd>I</kbd></td><td>加粗 / 斜体</td></tr>
+        <tr><td><kbd>Tab</kbd> / <kbd>Shift</kbd>+<kbd>Tab</kbd>（列表中）</td><td>缩进 / 取消缩进</td></tr>
+        <tr><td><kbd>Alt</kbd>+<kbd>F10</kbd></td><td>进入选区工具栏</td></tr>
+      </table>
+
+      <h2>灰字补全</h2>
+      <p>停止输入约 0.3 秒后，NovelKit 会在光标后给出一段灰色续写。</p>
+      <ul>
+        <li><strong>什么时候出现</strong>：光标在普通段落末尾（或其下的空行），没有选中文字，不在列表或引用里，输入法没有在组字。</li>
+        <li><strong>怎么处理</strong>：<kbd>Tab</kbd> 接受，<kbd>Esc</kbd> 放弃，继续打字等于放弃。灰字不按 Tab 永远不会进入正文。</li>
+        <li><strong>它读了什么</strong>：前文、本章提到的设定卡、前几章摘要、你的要点和写作风格。状态栏的「Context 预览」能看到这次发送的全部内容，并可以逐项去掉。</li>
+        <li><strong>调节</strong>：「应用设置 → 模型 → 生成模型」里可以关掉行内补全，或调「补全延迟」「补全长度」「上下文预算」。</li>
+      </ul>
+
+      <h2>情节点草稿</h2>
+      <p>想让 AI 起一段草稿时，按 <kbd>⌘/Ctrl</kbd>+<kbd>J</kbd>（或在 <kbd>/</kbd> 菜单选「情节点」）：</p>
+      <ol>
+        <li>写一句「指令」，比如“沈砚在码头第一次见到引航会的人”。</li>
+        <li>选「类型」（续写场景、推进对白、加强描写、场景过渡）和「详略」（略写 / 正常 / 详写），勾选生成时参考的内容（摘要、视角、设定、文风、后文）。</li>
+        <li>按 <kbd>Enter</kbd> 生成草稿，然后「插入」「放弃」或「保留为备选」。插入后可以「撤销插入」。</li>
+      </ol>
+
+      <h2>选区改写</h2>
+      <p>选中一段，在工具栏「更多」里选扩写、改写、缩写或自定义改写。结果不会自动写进正文：你可以先看「发送预览」，再选「替换」「插入到下方」或「复制」。AI 改写前会自动存一个版本。</p>
+
+      <h2>写作风格与样文</h2>
+      <p>「项目设置 → 写作风格」可以设项目风格，单个场景还能再覆盖；「最终生效的风格」显示合并后的结果。风格可以存为预设给其他作品用。从正文选一段「存为样文」，补全时就会参考它的笔法。</p>
+
+      <nav class="pager" aria-label="翻页"><a href="index.html">← 快速开始</a><a href="reference.html">参考面板与自动整理 →</a></nav>
+    </main>
+  </div>
+
+  <footer class="foot">
+    <div class="wrap foot-row">
+      <span class="brand"><img src="../media/icon.svg" width="20" height="20" alt=""><span>NovelKit 0.1</span></span>
+      <span>本地优先的网文写作台 · <a href="https://github.com/ForgeAILab/novelkit/releases">版本</a></span>
+    </div>
+  </footer>
+</body>
+</html>
