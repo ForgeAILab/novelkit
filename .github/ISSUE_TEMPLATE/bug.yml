@@ -1,41 +1,41 @@
 name: 问题反馈 / Bug report
-description: 崩溃、报错、补全或整理结果异常
+description: 崩溃、报错、补全或整理结果异常 / Crashes, errors, wrong completions or notes
 labels: [bug]
 body:
   - type: markdown
     attributes:
-      value: 谢谢反馈！请不要贴出未发表的稿件内容或 API Key。
+      value: 谢谢反馈！请不要贴出未发表的稿件内容或 API Key。 / Thanks! Please don't post unpublished manuscript text or API keys.
   - type: input
     id: version
     attributes:
-      label: NovelKit 版本
-      description: 「应用设置 → 关于」里的版本号，或下载的安装包名
+      label: NovelKit 版本 / Version
+      description: 「应用设置 → 关于」里的版本号，或下载的安装包名 / From Settings → About, or the installer file name
       placeholder: v0.1.0-test.2
     validations:
       required: true
   - type: dropdown
     id: os
     attributes:
-      label: 系统
+      label: 系统 / OS
       options: [macOS · Apple 芯片, macOS · Intel, Windows, Linux]
     validations:
       required: true
   - type: dropdown
     id: model
     attributes:
-      label: 使用的模型服务
-      options: [内置引擎, Ollama, LM Studio, OpenAI 兼容服务, Anthropic / Gemini, Claude Code / Codex, 没有配置模型, 不确定]
+      label: 使用的模型服务 / Model service
+      options: [内置引擎 / Built-in engine, Ollama, LM Studio, OpenAI 兼容服务 / OpenAI-compatible, Anthropic / Gemini, Claude Code / Codex, 没有配置模型 / No model, 不确定 / Not sure]
   - type: textarea
     id: what
     attributes:
-      label: 发生了什么
-      description: 你看到了什么，原本期望什么
+      label: 发生了什么 / What happened
+      description: 你看到了什么，原本期望什么 / What you saw and what you expected
     validations:
       required: true
   - type: textarea
     id: steps
     attributes:
-      label: 怎么复现
+      label: 怎么复现 / Steps to reproduce
       placeholder: |
         1. 打开……
         2. 点……
@@ -43,5 +43,5 @@ body:
   - type: textarea
     id: extra
     attributes:
-      label: 截图或报错信息
-      description: 可以直接把截图拖进来
+      label: 截图或报错信息 / Screenshots or error messages
+      description: 可以直接把截图拖进来 / Drag screenshots in here
