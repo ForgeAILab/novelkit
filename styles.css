@@ -111,7 +111,6 @@ button { font: inherit; color: inherit; }
 .top-meta { font: 12px/1 var(--font-mono); color: var(--text-tertiary); padding-left: var(--space-6); border-left: 1px solid var(--line); }
 
 /* Shared type */
-.overline, .index { font: 13px/1.4 var(--font-mono); letter-spacing: .04em; color: var(--text-tertiary); }
 h1, h2, h3, .outro-line, .sheet-title { font-family: var(--font-display); font-weight: 500; }
 h2 { font-size: var(--text-h2); line-height: 1.22; letter-spacing: -.01em; text-wrap: balance; }
 
@@ -129,7 +128,7 @@ h2 { font-size: var(--text-h2); line-height: 1.22; letter-spacing: -.01em; text-
 
 /* Hero */
 .hero { padding-top: clamp(56px, 9vw, 128px); }
-.hero h1 { margin-top: var(--space-6); font-size: var(--text-h1); line-height: 1.12; letter-spacing: -.02em; }
+.hero h1 { font-size: var(--text-h1); line-height: 1.12; letter-spacing: -.02em; }
 .h1-second { color: var(--text-tertiary); }
 .lede { margin-top: var(--space-8); max-width: 34em; font-size: var(--text-lede); line-height: 1.8; color: var(--text-secondary); }
 .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-6); margin-top: var(--space-8); }
@@ -146,8 +145,7 @@ h2 { font-size: var(--text-h2); line-height: 1.22; letter-spacing: -.01em; text-
   display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: center;
   gap: clamp(32px, 6vw, 96px); padding-block: var(--space-section);
 }
-.feature-copy h2, .band-head h2, .desk-head h2 { margin-top: var(--space-4); }
-.feature-copy p:not(.index), .band-head p:not(.index) { margin-top: var(--space-6); max-width: 26em; color: var(--text-secondary); }
+.feature-copy p, .band-head p { margin-top: var(--space-6); max-width: 26em; color: var(--text-secondary); }
 .feature-copy .note { margin-top: var(--space-4); font-size: 15px; color: var(--text-tertiary); }
 
 .sheet {
@@ -188,19 +186,17 @@ h2 { font-size: var(--text-h2); line-height: 1.22; letter-spacing: -.01em; text-
 .panel img {
   width: 100%; border: 1px solid var(--line); border-radius: var(--radius-lg);
   background: var(--surface-side); box-shadow: var(--shadow-1);
-  transition: transform var(--dur-reveal) var(--ease), box-shadow var(--dur-reveal) var(--ease);
 }
-.panel:hover img { transform: translateY(-4px); box-shadow: var(--shadow-pop); }
 .panel h3 { margin-top: var(--space-6); font-size: var(--text-h3); line-height: 1.4; }
 .panel p { margin-top: 6px; font-size: 15px; line-height: 1.7; color: var(--text-secondary); }
 
 /* 03 the desk */
 .desk { padding-block: var(--space-section); }
 .screens { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(20px, 3vw, 40px); margin-top: clamp(40px, 6vw, 80px); }
-.screen img { width: 100%; border: 1px solid var(--line); border-radius: var(--radius-lg); box-shadow: var(--shadow-pop); }
+.screen img { width: 100%; border: 1px solid var(--line); border-radius: var(--radius-lg); box-shadow: var(--shadow-1); }
 .screen figcaption { margin-top: var(--space-4); font-size: 15px; color: var(--text-secondary); }
 .screen strong { margin-right: var(--space-3); font: 500 16px/1.4 var(--font-display); color: var(--text); }
-.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: clamp(56px, 8vw, 104px); border-top: 1px solid var(--line); }
+.facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: clamp(56px, 8vw, 104px); border-top: 1px solid var(--line); }
 .facts > div { padding: var(--space-8) var(--space-8) 0 0; }
 .facts > div + div { padding-left: var(--space-8); border-left: 1px solid var(--line-subtle); }
 .facts dt { font: 500 var(--text-h3)/1.4 var(--font-display); }
